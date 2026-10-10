@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manual interactivo para aprender los componentes de una computadora y realizar su mantenimiento preventivo y correctivo.">
+  <title>Manual Interactivo de PC · Componentes y Mantenimiento</title>
+
+  <!-- Tipografía profesional (Inter + Space Grotesk) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Marca el documento como "con JS" para activar las animaciones de forma segura -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============================================================
+       SPRITE DE ICONOS SVG
+       Se define una sola vez y se reutiliza con <use href="#icono">
+       ============================================================ -->
+  <svg class="svg-sprite" aria-hidden="true">
+    <defs>
+      <symbol id="icon-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+      <symbol id="icon-board" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="2.5"/><path d="M14 5v4M17 5v6M6 15h6M15 15h4"/></symbol>
+      <symbol id="icon-ram" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="9" rx="1.5"/><path d="M6 16v3M10 16v3M14 16v3M18 16v3M6 10.5h2M10 10.5h2M14 10.5h2"/></symbol>
+      <symbol id="icon-disk" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M12 5v3.8"/></symbol>
+      <symbol id="icon-psu" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
+      <symbol id="icon-gpu" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="3"/><path d="M14 9.5h5M14 12h5M14 14.5h5"/></symbol>
+      <symbol id="icon-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 10c0-3 1-6 3.5-6S18 8 12 10M10.3 13c-2.6 1.5-5.4 3.4-5 5.9s4.6 1.3 5-5.9M13.7 13c2.6 1.5 5.4 3.4 5 5.9s-4.6 1.3-5-5.9"/></symbol>
+      <symbol id="icon-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3M8.2 11h5.6"/></symbol>
+      <symbol id="icon-thermo" viewBox="0 0 24 24"><path d="M14 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0z"/><path d="M12 8v7"/></symbol>
+      <symbol id="icon-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a4.5 4.5 0 0 0 5.6 5.6L11 21.2a2.4 2.4 0 0 1-3.4-3.4l9.3-9.3"/><path d="M14.7 6.3 17 4l3 3-2.3 2.3"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3.6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v.9M9 12.5l2 2 4-4"/></symbol>
+      <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 9.5v4M12 17.2h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path d="M6 4.5v15l13-7.5-13-7.5z"/></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============================================================
+       BARRA DE NAVEGACIÓN
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand">
+        <span class="brand-chip">PC</span>
+        <span class="brand-text">Manual<span class="brand-dot">.</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link is-active">Inicio</a>
+        <a href="#componentes" class="nav-link">Componentes</a>
+        <a href="#modulos" class="nav-link">Mantenimiento</a>
+        <a href="#diagnostico" class="nav-link">Diagnóstico</a>
+        <a href="#quiz" class="nav-link">Evaluación</a>
+        <button class="icon-btn" id="themeToggle" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema">
+          <svg class="ic ic-sun"><use href="#icon-sun"></use></svg>
+          <svg class="ic ic-moon"><use href="#icon-moon"></use></svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Indicador de progreso de lectura -->
+    <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO · PRESENTACIÓN DEL MANUAL
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-text" data-reveal>
+          <span class="badge"><span class="badge-dot"></span> Bienvenido · Guía interactiva</span>
+          <h1>Manual interactivo de <span class="grad">computadoras y sus componentes</span></h1>
+          <p class="lead">
+            Aprende qué hace cada pieza de una PC y domina el mantenimiento preventivo y
+            correctivo con módulos paso a paso, diagnóstico guiado y una evaluación final.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#componentes" class="btn btn-primary">Comenzar recorrido</a>
+            <a href="#diagnostico" class="btn btn-ghost">Diagnóstico rápido</a>
+          </div>
+
+          <ul class="hero-stats">
+            <li><strong>8</strong><span>Componentes</span></li>
+            <li><strong>5</strong><span>Módulos prácticos</span></li>
+            <li><strong>26</strong><span>Pasos guiados</span></li>
+            <li><strong>100%</strong><span>Interactivo</span></li>
+          </ul>
+        </div>
+
+        <!-- Visual animado: chip central con componentes orbitando -->
+        <div class="hero-visual" data-reveal>
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+
+          <div class="chip">
+            <div class="chip-pins"></div>
+            <div class="chip-core">
+              <span class="chip-label">CPU</span>
+              <span class="chip-sub">Central Process Unit</span>
+            </div>
+          </div>
+
+          <span class="float-pill pill-1"><svg class="ic"><use href="#icon-ram"></use></svg> RAM</span>
+          <span class="float-pill pill-2"><svg class="ic"><use href="#icon-gpu"></use></svg> GPU</span>
+          <span class="float-pill pill-3"><svg class="ic"><use href="#icon-disk"></use></svg> SSD</span>
+          <span class="float-pill pill-4"><svg class="ic"><use href="#icon-board"></use></svg> Board</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN 01 · COMPONENTES
+         ============================================================ -->
+    <section class="section" id="componentes">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow">01 · Fundamentos</span>
+          <h2>Conoce las piezas de tu computadora</h2>
+          <p>Haz clic en cualquier tarjeta para desplegar sus detalles técnicos y consejos prácticos.</p>
+        </header>
+
+        <div class="comp-grid">
+          <!-- Tarjeta: Procesador -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-cpu"></use></svg></span>
+              <span class="comp-title">
+                <strong>Procesador (CPU)</strong>
+                <em>El cerebro que ejecuta instrucciones</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Unidad central de proceso: lee, decodifica y ejecuta las instrucciones del software a máxima velocidad.</p>
+              <ul>
+                <li><b>Claves:</b> núcleos/hilos, frecuencia (GHz), caché y socket.</li>
+                <li><b>Ejemplos:</b> Intel Core i5 / AMD Ryzen 5.</li>
+                <li><b>Cuidado:</b> requiere disipador y pasta térmica bien aplicadas.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Placa madre -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-board"></use></svg></span>
+              <span class="comp-title">
+                <strong>Placa madre</strong>
+                <em>Interconecta todos los componentes</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Circuito impreso principal donde se conectan CPU, memoria, almacenamiento y tarjetas de expansión.</p>
+              <ul>
+                <li><b>Claves:</b> chipset, socket, ranuras DIMM/PCIe y factores de forma.</li>
+                <li><b>Firmware:</b> BIOS/UEFI gestiona el arranque (POST).</li>
+                <li><b>Cuidado:</b> evita golpes y revisa los standoffs del gabinete.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Memoria RAM -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-ram"></use></svg></span>
+              <span class="comp-title">
+                <strong>Memoria RAM</strong>
+                <em>Almacenamiento temporal de alta velocidad</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Guarda los datos y programas en uso mientras la PC está encendida; al apagarse se borra su contenido.</p>
+              <ul>
+                <li><b>Claves:</b> capacidad (GB), velocidad (MHz) y tipo DDR4/DDR5.</li>
+                <li><b>Instalación:</b> alinea la muesca y cierra los seguros.</li>
+                <li><b>Síntoma de falla:</b> pantallazos azules y reinicios.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Almacenamiento -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-disk"></use></svg></span>
+              <span class="comp-title">
+                <strong>Almacenamiento</strong>
+                <em>SSD, NVMe y disco duro mecánico</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Medio permanente donde viven el sistema operativo, tus archivos y aplicaciones.</p>
+              <ul>
+                <li><b>SSD NVMe:</b> el más rápido, va en la ranura M.2.</li>
+                <li><b>SSD SATA:</b> sustituye al disco en gabinetes antiguos.</li>
+                <li><b>HDD:</b> mayor capacidad, menor velocidad y con partes móviles.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Fuente de poder -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-psu"></use></svg></span>
+              <span class="comp-title">
+                <strong>Fuente de poder</strong>
+                <em>Convierte la corriente de la red</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Transforma la corriente alterna (110/220 V) en las tensiones continuas que usa la PC (+12 V, +5 V, +3.3 V).</p>
+              <ul>
+                <li><b>Claves:</b> vatios (W), certificación 80 Plus y protecciones.</li>
+                <li><b>Señal de alarma:</b> olor a quemado, zumbidos o arranques fallidos.</li>
+                <li><b>Prueba:</b> verificar con tester ATX (Módulo 2).</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Tarjeta gráfica -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-gpu"></use></svg></span>
+              <span class="comp-title">
+                <strong>Tarjeta gráfica</strong>
+                <em>Renderiza imagen y video (GPU)</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Procesa los cálculos de imagen en paralelo: escritorio, videojuegos, edición y renderizado 3D.</p>
+              <ul>
+                <li><b>Claves:</b> GPU dedicada, memoria VRAM y puerto de salida.</li>
+                <li><b>Integrada:</b> la iGPU de la CPU sirve para uso básico.</li>
+                <li><b>Cuidado:</b> necesita alimentación PCIe y buen flujo de aire.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Enfriamiento -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-fan"></use></svg></span>
+              <span class="comp-title">
+                <strong>Sistema de enfriamiento</strong>
+                <em>Disipadores, ventiladores y pasta térmica</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Mantiene las temperaturas dentro de rangos seguros para evitar el throttling y el daño por calor.</p>
+              <ul>
+                <li><b>Componentes:</b> disipador, ventiladores, pasta térmica y airflow.</li>
+                <li><b>Prevención:</b> limpiar polvo cada 3–6 meses.</li>
+                <li><b>Monitoreo:</b> vigila temperaturas con software de sensor.</li>
+              </ul></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta: Periféricos y gabinete -->
+          <article class="comp-card" data-reveal>
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-keyboard"></use></svg></span>
+              <span class="comp-title">
+                <strong>Gabinete y periféricos</strong>
+                <em>Estructura, entrada y salida</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>El gabinete protege y ordena los componentes; los periféricos permiten interactuar con el sistema.</p>
+              <ul>
+                <li><b>Entrada:</b> teclado, mouse, micrófono.</li>
+                <li><b>Salida:</b> monitor, parlantes, impresora.</li>
+                <li><b>Consejo:</b> un cableado limpio mejora el flujo de aire.</li>
+              </ul></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN 02 · MÓDULOS DE MANTENIMIENTO
+         ============================================================ -->
+    <section class="section section-alt" id="modulos">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow">02 · Mantenimiento</span>
+          <h2>Módulos prácticos de reparación</h2>
+          <p>Cinco procedimientos guiados: <b>Ejecutar</b> inicia los pasos y <b>Ver módulo</b> muestra el resumen completo.</p>
+        </header>
+
+        <div class="mod-grid">
+          <!-- Módulo 1 -->
+          <article class="mod-card" data-reveal>
+            <div class="mod-top mod-tone-blue">
+              <svg class="ic mod-ic"><use href="#icon-search"></use></svg>
+              <span class="mod-num">01</span>
+            </div>
+            <div class="mod-content">
+              <h3>Diagnóstico inicial</h3>
+              <p>Detectar la falla cuando la computadora no enciende.</p>
+              <div class="mod-actions">
+                <button class="btn btn-accent btn-sm" data-open-module="0" data-mode="pasos">
+                  <svg class="ic ic-xs"><use href="#icon-play"></use></svg> Ejecutar
+                </button>
+                <button class="btn btn-dark btn-sm" data-open-module="0" data-mode="resumen">Ver módulo</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Módulo 2 -->
+          <article class="mod-card" data-reveal>
+            <div class="mod-top mod-tone-green">
+              <svg class="ic mod-ic"><use href="#icon-psu"></use></svg>
+              <span class="mod-num">02</span>
+            </div>
+            <div class="mod-content">
+              <h3>Verificar fuente de poder</h3>
+              <p>Comprobar voltajes con un tester ATX de forma segura.</p>
+              <div class="mod-actions">
+                <button class="btn btn-accent btn-sm" data-open-module="1" data-mode="pasos">
+                  <svg class="ic ic-xs"><use href="#icon-play"></use></svg> Ejecutar
+                </button>
+                <button class="btn btn-dark btn-sm" data-open-module="1" data-mode="resumen">Ver módulo</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Módulo 3 -->
+          <article class="mod-card" data-reveal>
+            <div class="mod-top mod-tone-amber">
+              <svg class="ic mod-ic"><use href="#icon-ram"></use></svg>
+              <span class="mod-num">03</span>
+            </div>
+            <div class="mod-content">
+              <h3>Cambiar memoria RAM</h3>
+              <p>Retiro e instalación segura de módulos DIMM sin daños.</p>
+              <div class="mod-actions">
+                <button class="btn btn-accent btn-sm" data-open-module="2" data-mode="pasos">
+                  <svg class="ic ic-xs"><use href="#icon-play"></use></svg> Ejecutar
+                </button>
+                <button class="btn btn-dark btn-sm" data-open-module="2" data-mode="resumen">Ver módulo</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Módulo 4 -->
+          <article class="mod-card" data-reveal>
+            <div class="mod-top mod-tone-red">
+              <svg class="ic mod-ic"><use href="#icon-thermo"></use></svg>
+              <span class="mod-num">04</span>
+            </div>
+            <div class="mod-content">
+              <h3>Aplicar pasta térmica</h3>
+              <p>Limpieza y reaplicación correcta entre CPU y disipador.</p>
+              <div class="mod-actions">
+                <button class="btn btn-accent btn-sm" data-open-module="3" data-mode="pasos">
+                  <svg class="ic ic-xs"><use href="#icon-play"></use></svg> Ejecutar
+                </button>
+                <button class="btn btn-dark btn-sm" data-open-module="3" data-mode="resumen">Ver módulo</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Módulo 5 -->
+          <article class="mod-card" data-reveal>
+            <div class="mod-top mod-tone-violet">
+              <svg class="ic mod-ic"><use href="#icon-tools"></use></svg>
+              <span class="mod-num">05</span>
+            </div>
+            <div class="mod-content">
+              <h3>Cambio de placa madre</h3>
+              <p>Desmontaje, montaje y configuración de una nueva board.</p>
+              <div class="mod-actions">
+                <button class="btn btn-accent btn-sm" data-open-module="4" data-mode="pasos">
+                  <svg class="ic ic-xs"><use href="#icon-play"></use></svg> Ejecutar
+                </button>
+                <button class="btn btn-dark btn-sm" data-open-module="4" data-mode="resumen">Ver módulo</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Barra global de progreso de los módulos -->
+        <div class="global-progress" data-reveal>
+          <div class="gp-info">
+            <svg class="ic"><use href="#icon-clipboard"></use></svg>
+            <span>Progreso global del manual</span>
+            <strong id="globalProgressText">0 / 5 módulos completados</strong>
+          </div>
+          <div class="gp-track"><div class="gp-bar" id="globalProgressBar"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN 03 · DIAGNÓSTICO INTERACTIVO
+         ============================================================ -->
+    <section class="section" id="diagnostico">
+      <div class="container diag-layout">
+        <header class="section-head section-head-left" data-reveal>
+          <span class="eyebrow">03 · Asistente</span>
+          <h2>Diagnóstico interactivo</h2>
+          <p>Responde las preguntas y obtén una recomendación inicial con el módulo sugerido.</p>
+          <ul class="diag-notes">
+            <li><svg class="ic ic-xs"><use href="#icon-alert"></use></svg> Antes de abrir el equipo, desconéctalo de la corriente.</li>
+            <li><svg class="ic ic-xs"><use href="#icon-check"></use></svg> Anota los códigos de pitido o mensajes en pantalla.</li>
+            <li><svg class="ic ic-xs"><use href="#icon-refresh"></use></svg> Puedes reiniciar el asistente en cualquier momento.</li>
+          </ul>
+        </header>
+
+        <div class="diag-panel" data-reveal>
+          <div class="diag-breadcrumb" id="diagBreadcrumb">Inicio</div>
+
+          <h3 class="diag-question" id="diagQuestion">Cargando pregunta…</h3>
+          <div class="diag-options" id="diagOptions"></div>
+
+          <div class="diag-result" id="diagResult" hidden>
+            <span class="diag-result-ic"><svg class="ic"><use href="#icon-clipboard"></use></svg></span>
+            <div>
+              <h4 id="diagResultTitle"></h4>
+              <p id="diagResultText"></p>
+              <div class="diag-result-actions">
+                <button class="btn btn-primary btn-sm" id="diagResultModule" hidden>Ver módulo sugerido</button>
+                <button class="btn btn-ghost btn-sm" id="diagRestart">
+                  <svg class="ic ic-xs"><use href="#icon-refresh"></use></svg> Reiniciar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN 04 · EVALUACIÓN / QUIZ
+         ============================================================ -->
+    <section class="section section-alt" id="quiz">
+      <div class="container quiz-layout">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow">04 · Evaluación</span>
+          <h2>Pon a prueba tus conocimientos</h2>
+          <p>Seis preguntas rápidas sobre componentes y mantenimiento.</p>
+        </header>
+
+        <div class="quiz-panel" data-reveal>
+          <div class="quiz-top">
+            <div class="quiz-counter" id="quizCounter">Pregunta 1 de 6</div>
+            <div class="quiz-score">Récord: <strong id="quizBest">0</strong>/6</div>
+          </div>
+          <div class="quiz-track"><div class="quiz-bar" id="quizBar"></div></div>
+
+          <h3 class="quiz-question" id="quizQuestion"></h3>
+          <div class="quiz-options" id="quizOptions"></div>
+
+          <div class="quiz-feedback" id="quizFeedback" hidden></div>
+
+          <div class="quiz-nav">
+            <button class="btn btn-primary" id="quizNext" hidden>Siguiente
+              <svg class="ic ic-xs"><use href="#icon-chevron"></use></svg>
+            </button>
+          </div>
+
+          <!-- Panel final con resultado -->
+          <div class="quiz-final" id="quizFinal" hidden>
+            <div class="quiz-medal" id="quizMedal">0/6</div>
+            <h3 id="quizFinalTitle"></h3>
+            <p id="quizFinalText"></p>
+            <button class="btn btn-primary" id="quizRestart">
+              <svg class="ic ic-xs"><use href="#icon-refresh"></use></svg> Intentar de nuevo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#inicio" class="brand">
+        <span class="brand-chip">PC</span>
+        <span class="brand-text">Manual<span class="brand-dot">.</span></span>
+      </a>
+      <p>Manual interactivo de computadoras: componentes, mantenimiento y diagnóstico.</p>
+      <span class="footer-copy">© 2026 · Construido con HTML, CSS y JavaScript</span>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL · VISOR DE MÓDULOS
+       ============================================================ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-modal aria-label="Cerrar módulo">✕</button>
+
+      <div class="modal-head">
+        <span class="modal-kicker" id="modalKicker">Módulo 1</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+
+        <div class="modal-progress">
+          <div class="modal-progress-bar" id="modalProgressBar"></div>
+        </div>
+        <span class="modal-progress-text" id="modalProgressText">0 de 0 pasos completados</span>
+
+        <div class="modal-tabs" role="tablist">
+          <button class="modal-tab is-active" data-tab="resumen" role="tab">Resumen</button>
+          <button class="modal-tab" data-tab="pasos" role="tab">Pasos <span class="tab-count" id="tabStepsCount"></span></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Pestaña: resumen del módulo -->
+        <div class="tab-panel is-active" id="tab-resumen">
+          <div class="resumen-grid">
+            <div class="resumen-block">
+              <h4><svg class="ic ic-xs"><use href="#icon-check"></use></svg> Objetivos</h4>
+              <ul id="modalObjectives"></ul>
+            </div>
+            <div class="resumen-block">
+              <h4><svg class="ic ic-xs"><use href="#icon-tools"></use></svg> Herramientas necesarias</h4>
+              <ul id="modalTools"></ul>
+            </div>
+          </div>
+          <div class="alert-box" id="modalSafety"></div>
+        </div>
+
+        <!-- Pestaña: pasos del procedimiento -->
+        <div class="tab-panel" id="tab-pasos">
+          <ol class="steps-list" id="stepsList"></ol>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button class="btn btn-ghost btn-sm" id="stepPrev">← Anterior</button>
+        <span class="step-indicator" id="stepIndicator">Paso 1 / 1</span>
+        <button class="btn btn-primary btn-sm" id="stepNext">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón flotante: volver arriba -->
+  <button class="to-top" id="toTop" aria-label="Volver arriba">
+    <svg class="ic"><use href="#icon-arrow-up"></use></svg>
+  </button>
+
+  <!-- Notificación emergente (toast) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Script principal -->
+  <script src="js/script.js"></script>
+</body>
+</html>
