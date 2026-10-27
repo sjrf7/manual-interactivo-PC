@@ -1,0 +1,11 @@
+Ningún componente de la PC trabaja solo. Todos se comunican a través de una sola pieza: la placa madre.
+
+Es el circuito impreso principal del equipo. Sobre ella se montan el procesador, la memoria RAM, el almacenamiento y las tarjetas de expansión. Además, distribuye energía y datos entre todos ellos.
+
+Cada componente tiene su lugar. El socket recibe el CPU; las ranuras DIMM, la memoria; las ranuras PCIe, la tarjeta gráfica u otras tarjetas; y las conexiones M.2 y SATA, los discos. El chipset coordina la comunicación y define qué componentes son compatibles.
+
+Antes de comprar una placa, revisa el socket, el tipo de memoria que admite, las ranuras disponibles y el factor de forma. Debe coincidir con el gabinete. Su firmware, BIOS o UEFI, realiza el POST al encender y verifica que el hardware esté presente.
+
+Manipúlala con cuidado y descarga la electricidad estática antes de tocarla. Usa los separadores o standoffs del gabinete para evitar cortocircuitos. Si el equipo no arranca, revisa la alimentación, la memoria y el diagnóstico por LED o pitidos.
+
+La placa madre es la base de toda la PC: si no es compatible, nada encaja. En el siguiente video hablaremos de la memoria RAM.

@@ -1,0 +1,11 @@
+Cuando apagas la computadora, tus archivos siguen ahí. El responsable es el almacenamiento.
+
+Es el medio donde viven el sistema operativo, tus aplicaciones y todos tus archivos. A diferencia de la memoria RAM, no se borra al apagar el equipo.
+
+Existen tres tipos principales. El HDD usa platos y cabezales móviles: ofrece mucha capacidad, pero es más lento y frágil. El SSD SATA usa memoria flash y moderniza equipos antiguos. Y el SSD NVMe se instala en la ranura M.2 y es el más rápido de todos.
+
+Para el sistema operativo conviene un SSD, preferiblemente NVMe. Para archivos grandes y respaldo, un HDD de mayor capacidad puede ser suficiente. Lo ideal es combinar ambos según tu presupuesto.
+
+Un disco puede fallar sin avisar. Los HDD suelen emitir ruidos extraños; los SSD pueden volverse lentos o dejar de detectarse. Revisa su estado con herramientas SMART y mantén copias de seguridad.
+
+El almacenamiento conserva tu información: cuídalo con respaldos. En el siguiente video veremos la fuente de poder.

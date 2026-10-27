@@ -1,0 +1,11 @@
+¿Por qué tu computadora se vuelve lenta cuando abres muchas pestañas? La respuesta está en la memoria RAM.
+
+La RAM guarda los datos y programas que estás usando en este momento. Es una memoria temporal y muy rápida. Cuando apagas la PC, su contenido se borra por completo.
+
+Su capacidad se mide en gigabytes y su velocidad en megahercios. Los tipos más comunes hoy son DDR4 y DDR5. Cuando trabajas, el sistema mueve datos entre el disco, la RAM y el procesador. Si la RAM se llena, el equipo recurre al disco y todo se vuelve más lento.
+
+Al instalar un módulo, alinea la muesca con la ranura y presiona hasta cerrar los seguros. Para aprovechar el doble canal, coloca los módulos en las ranuras indicadas por la placa. Verifica siempre el tipo de memoria que admite tu equipo.
+
+Una RAM defectuosa o mal colocada provoca pantallazos azules, reinicios o fallos al arrancar. Si sospechas de ella, prueba un módulo a la vez y usa una herramienta de diagnóstico de memoria.
+
+Más RAM significa más programas abiertos sin perder velocidad. En el siguiente video veremos dónde se guardan tus archivos: el almacenamiento.

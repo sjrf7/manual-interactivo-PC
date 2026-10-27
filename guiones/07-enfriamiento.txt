@@ -1,0 +1,11 @@
+El calor es el enemigo silencioso de la computadora. El sistema de enfriamiento evita que los componentes se dañen.
+
+Combina varias piezas: el disipador, que absorbe el calor; los ventiladores, que lo expulsan; la pasta térmica, que mejora el contacto; y el flujo de aire del gabinete.
+
+El calor pasa del chip al disipador y de ahí al aire. Los ventiladores renuevan ese aire. Si el flujo se obstruye, la temperatura sube y el procesador reduce su velocidad para protegerse, bajando el rendimiento.
+
+Existen disipadores de aire y sistemas líquidos. Para la mayoría de equipos, un buen disipador de aire es suficiente. Lo importante es que sea compatible con el socket y con el espacio del gabinete.
+
+Limpia el polvo cada tres a seis meses y vigila las temperaturas con software de sensores. Ruido excesivo, apagones o temperaturas muy altas indican que el enfriamiento necesita atención.
+
+Un buen enfriamiento alarga la vida de la PC y mantiene su rendimiento. En el último video veremos el gabinete y los periféricos.

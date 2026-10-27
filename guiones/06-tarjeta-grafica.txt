@@ -1,0 +1,11 @@
+Todo lo que ves en tu pantalla, desde el escritorio hasta un videojuego, pasa por la tarjeta gráfica.
+
+Es el componente que procesa imágenes y video. Trabaja en paralelo, realizando miles de cálculos a la vez. Puede venir integrada en el procesador, para uso básico, o ser una tarjeta dedicada con mucho más potencia.
+
+La GPU tiene su propia memoria, llamada VRAM, donde guarda texturas y datos gráficos. Cuanta más VRAM y potencia tenga, mejor responderá en juegos, edición y renderizado 3D. Se conecta a la placa mediante una ranura PCIe.
+
+Revisa los puertos de salida: HDMI y DisplayPort deben coincidir con tu monitor. También necesita alimentación adicional de la fuente mediante cables PCIe y un buen flujo de aire.
+
+Mantén limpios sus ventiladores y actualiza los controladores. Si aparecen artefactos en pantalla, apagones o sobrecalentamiento, revisa la temperatura, la alimentación y que esté bien insertada.
+
+La tarjeta gráfica da vida a la imagen, pero debe equilibrarse con el resto del equipo. En el siguiente video veremos el enfriamiento.

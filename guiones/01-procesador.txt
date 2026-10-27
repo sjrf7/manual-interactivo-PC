@@ -1,0 +1,11 @@
+Si la computadora fuera una persona, el procesador sería su cerebro. Todo lo que haces en pantalla pasa, tarde o temprano, por este pequeño chip.
+
+El CPU, o unidad central de proceso, es el componente que lee, decodifica y ejecuta las instrucciones del sistema operativo y de tus programas. No guarda archivos: los procesa.
+
+Su trabajo se repite millones de veces por segundo: toma una instrucción, la interpreta y la ejecuta. Los núcleos son unidades de trabajo independientes, y los hilos permiten aprovechar mejor cada núcleo. La frecuencia, medida en gigahercios, indica cuántos ciclos realiza por segundo. Y la caché es una memoria ultrarrápida que guarda datos de uso inmediato.
+
+Al elegir un procesador revisa cuatro cosas: núcleos e hilos, frecuencia, cantidad de caché y, sobre todo, el socket. El socket debe coincidir con el de la placa madre. Ejemplos comunes son el Intel Core i5 y el AMD Ryzen 5.
+
+El CPU genera mucho calor. Necesita un disipador y pasta térmica bien aplicados. Si se calienta demasiado, reduce su velocidad para protegerse: eso se llama throttling. Si el equipo no enciende, revisa que el procesador esté bien asentado y que no haya pines doblados.
+
+En resumen: el procesador ejecuta las instrucciones y marca el ritmo de la PC. En el siguiente video veremos la placa madre, el lugar donde todo se conecta.

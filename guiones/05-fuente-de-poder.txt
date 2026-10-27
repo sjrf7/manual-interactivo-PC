@@ -1,0 +1,11 @@
+Sin energía, ningún componente funciona. La fuente de poder es el corazón eléctrico de la computadora.
+
+Su función es transformar la corriente alterna de la red, de 110 o 220 voltios, en las tensiones continuas que usan los componentes: principalmente 12, 5 y 3.3 voltios.
+
+Los vatios indican cuánta energía puede entregar. Deben cubrir el consumo de todos los componentes con margen. La certificación 80 Plus indica eficiencia, y las protecciones evitan daños por sobrecarga, cortocircuito o sobretensión.
+
+Revisa que tenga los conectores que necesita tu placa y tu tarjeta gráfica: el de 24 pines, el de CPU y los de PCIe. Una fuente insuficiente provoca apagones o reinicios bajo carga.
+
+Olor a quemado, zumbidos o arranques fallidos son señales de alerta. Nunca abras una fuente: almacena energía peligrosa. Para diagnosticar, usa un tester ATX o prueba con otra fuente.
+
+Una buena fuente protege toda la inversión. En el siguiente video veremos la tarjeta gráfica.
