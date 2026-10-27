@@ -37,6 +37,7 @@
       <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
       <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
       <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
     </defs>
   </svg>
 
@@ -125,7 +126,7 @@
         <header class="section-head" data-reveal>
           <span class="eyebrow">01 · Fundamentos</span>
           <h2>Conoce las piezas de tu computadora</h2>
-          <p>Haz clic en cualquier tarjeta para desplegar sus detalles técnicos y consejos prácticos.</p>
+          <p>Haz clic en cualquier tarjeta para ver sus detalles. En el procesador, pulsa “Comenzar” para ver la lección en video y resolver el quiz final.</p>
         </header>
 
         <div class="comp-grid">
@@ -148,7 +149,7 @@
                 <li><b>Cuidado:</b> requiere disipador y pasta térmica bien aplicadas.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="procesador" aria-haspopup="dialog" aria-label="Comenzar lección en video: Procesador (CPU)">Comenzar</button>
           </article>
 
           <!-- Tarjeta: Placa madre -->
@@ -330,6 +331,54 @@
 
   <!-- Notificación emergente (toast) -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ============================================================
+       LECCIÓN EN VIDEO + QUIZ
+       ============================================================ -->
+  <dialog class="lesson-dialog" id="lessonDialog" aria-labelledby="lessonTitle">
+    <div class="lesson-shell">
+      <header class="lesson-head">
+        <div class="lesson-heading">
+          <span class="eyebrow" id="lessonEyebrow">Lección en video</span>
+          <h2 id="lessonTitle">Procesador (CPU)</h2>
+        </div>
+        <button class="lesson-close" id="lessonClose" type="button" aria-label="Cerrar lección">
+          <svg class="ic" aria-hidden="true"><use href="#icon-x"></use></svg>
+        </button>
+      </header>
+
+      <div class="lesson-stage" id="videoStage">
+        <video class="lesson-video" id="lessonVideo" controls playsinline preload="metadata" poster="img/processor.webp" aria-label="Video de la lección: Procesador (CPU)">
+          <source src="videos/01-Procesador.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
+
+      <section class="lesson-quiz" id="lessonQuiz" aria-labelledby="quizTitle" hidden>
+        <div class="quiz-intro">
+          <span class="eyebrow">Pon a prueba lo aprendido</span>
+          <h3 id="quizTitle">Quiz del procesador</h3>
+          <p>Responde estas tres preguntas. Puedes volver a ver el video si lo necesitas.</p>
+        </div>
+
+        <form class="quiz-form" id="quizForm" novalidate>
+          <div class="quiz-questions" id="quizQuestions"></div>
+          <p class="quiz-error" id="quizError" role="alert" hidden>Responde todas las preguntas antes de comprobar.</p>
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="quizSubmit" type="submit">Comprobar respuestas</button>
+            <button class="btn btn-ghost" id="rewatchBtn" type="button">Volver a ver el video</button>
+          </div>
+        </form>
+
+        <div class="quiz-result" id="quizResult" hidden aria-live="polite" tabindex="-1">
+          <p class="quiz-score-label">Resultado</p>
+          <p class="quiz-score" id="quizScore"></p>
+          <p class="quiz-message" id="quizMessage"></p>
+          <button class="btn btn-primary" id="retryQuiz" type="button">Intentar de nuevo</button>
+        </div>
+      </section>
+    </div>
+  </dialog>
 
   <!-- Script principal -->
   <script src="js/script.js"></script>
