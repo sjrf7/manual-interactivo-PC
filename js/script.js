@@ -173,7 +173,7 @@ const LECCIONES = {
     titulo: "Bienvenida · Guía visual de la PC",
     eyebrow: "Bienvenida",
     video: "videos/00-Bienvenida.mp4",
-    poster: "img/tower_pc.webp",
+    poster: "img/bienvenida.webp",
     quiz: [
       {
         pregunta: "¿Qué encontrarás en este manual interactivo?",
@@ -428,6 +428,13 @@ const LECCIONES = {
       },
     ],
   },
+  conclusion: {
+    titulo: "Conclusión",
+    eyebrow: "Fin del recorrido",
+    video: "videos/07-Cierre.mp4",
+    poster: "img/conclusion.webp",
+    quiz: [],
+  },
 };
 
 const MENSAJES_QUIZ = [
@@ -450,6 +457,7 @@ function iniciarLecciones() {
   const marcador = $("#quizScore");
   const mensaje = $("#quizMessage");
   const botonComprobar = $("#quizSubmit");
+  const salida = $("#lessonOutro");
 
   let leccionActual = null;
 
@@ -488,10 +496,24 @@ function iniciarLecciones() {
 
     pintarQuiz(leccionActual.quiz);
     etapaVideo.hidden = false;
+    video.hidden = false;
+    salida.hidden = true;
     seccionQuiz.hidden = true;
     if (video.readyState >= 1) video.currentTime = 0;
     video.focus({ preventScroll: true });
     video.play().catch(() => {});
+  }
+
+  /** Muestra el cierre para lecciones sin quiz. */
+  function mostrarCierre() {
+    if (!leccionActual) return;
+
+    video.pause();
+    etapaVideo.hidden = false;
+    video.hidden = true;
+    salida.hidden = false;
+    seccionQuiz.hidden = true;
+    salida.focus({ preventScroll: true });
   }
 
   /** Muestra el quiz cuando termina el video. */
@@ -500,6 +522,7 @@ function iniciarLecciones() {
 
     video.pause();
     etapaVideo.hidden = true;
+    salida.hidden = true;
     seccionQuiz.hidden = false;
     seccionQuiz.scrollTop = 0;
 
@@ -513,10 +536,13 @@ function iniciarLecciones() {
     if (!datos || dialogo.open) return;
 
     leccionActual = datos;
+    const tieneQuiz = datos.quiz.length > 0;
     $("#lessonEyebrow").textContent = datos.eyebrow || "Lección en video";
     $("#lessonTitle").textContent = datos.titulo;
-    $("#quizTitle").textContent = `Quiz: ${datos.titulo}`;
-    $("#quizIntroText").textContent = `Responde estas ${datos.quiz.length} preguntas. Puedes volver a ver el video si lo necesitas.`;
+    $("#quizTitle").textContent = tieneQuiz ? `Quiz: ${datos.titulo}` : datos.titulo;
+    $("#quizIntroText").textContent = tieneQuiz
+      ? `Responde estas ${datos.quiz.length} preguntas. Puedes volver a ver el video si lo necesitas.`
+      : "";
     video.setAttribute("aria-label", `Video de la lección: ${datos.titulo}`);
     video.poster = datos.poster;
     video.src = datos.video;
@@ -594,6 +620,7 @@ function iniciarLecciones() {
 
   /* Cierra la lección con el botón, el fondo o Escape. */
   $("#lessonClose").addEventListener("click", () => dialogo.close());
+  $("#outroClose").addEventListener("click", () => dialogo.close());
   dialogo.addEventListener("click", (evento) => {
     if (evento.target === dialogo) dialogo.close();
   });
@@ -602,7 +629,10 @@ function iniciarLecciones() {
     document.body.classList.remove("modal-open");
   });
 
-  video.addEventListener("ended", mostrarQuiz);
+  video.addEventListener("ended", () => {
+    if (leccionActual?.quiz.length) mostrarQuiz();
+    else mostrarCierre();
+  });
   video.addEventListener("error", () => {
     mostrarAviso("No se pudo cargar el video de la lección.");
   });
