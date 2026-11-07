@@ -32,7 +32,7 @@
       <symbol id="icon-psu" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
       <symbol id="icon-gpu" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="3"/><path d="M14 9.5h5M14 12h5M14 14.5h5"/></symbol>
       <symbol id="icon-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 10c0-3 1-6 3.5-6S18 8 12 10M10.3 13c-2.6 1.5-5.4 3.4-5 5.9s4.6 1.3 5-5.9M13.7 13c2.6 1.5 5.4 3.4 5 5.9s-4.6 1.3-5-5.9"/></symbol>
-      <symbol id="icon-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
       <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
       <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
       <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
@@ -92,7 +92,7 @@
           </div>
 
           <ul class="hero-stats">
-            <li><strong>8</strong><span>Componentes</span></li>
+            <li><strong>6</strong><span>Lecciones</span></li>
             <li><strong>100%</strong><span>Interactivo</span></li>
           </ul>
         </div>
@@ -124,19 +124,41 @@
     <section class="section" id="componentes">
       <div class="container">
         <header class="section-head" data-reveal>
-          <span class="eyebrow">01 · Fundamentos</span>
-          <h2>Conoce las piezas de tu computadora</h2>
-          <p>Haz clic en cualquier tarjeta para ver sus detalles. En el procesador, pulsa “Comenzar” para ver la lección en video y resolver el quiz final.</p>
+          <span class="eyebrow">01 · Lecciones</span>
+          <h2>Recorre la PC paso a paso</h2>
+          <p>Empieza por la bienvenida y continúa con cada lección en video. Pulsa “Comenzar” para ver el video y resolver el quiz final.</p>
         </header>
 
         <div class="comp-grid">
+          <!-- Tarjeta: Bienvenida -->
+          <article class="comp-card" data-reveal>
+            <img class="comp-img" src="img/tower_pc.webp" alt="Gabinete de PC con sus componentes internos" width="786" height="1200" loading="lazy">
+            <button class="comp-head" aria-expanded="false">
+              <span class="comp-icon"><svg class="ic"><use href="#icon-play"></use></svg></span>
+              <span class="comp-title">
+                <strong>Bienvenida</strong>
+                <em>Guía visual de la PC</em>
+              </span>
+              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
+            </button>
+            <div class="comp-body">
+              <div class="comp-inner"><p>Empieza aquí: conoce el recorrido del manual y cómo aprovechar cada lección en video.</p>
+              <ul>
+                <li><b>Qué verás:</b> los componentes principales y sus cuidados.</li>
+                <li><b>Cómo funciona:</b> video y quiz al final de cada lección.</li>
+                <li><b>Consejo:</b> mira el video completo antes de responder.</li>
+              </ul></div>
+            </div>
+            <button class="comp-cta" type="button" data-leccion="bienvenida" aria-haspopup="dialog" aria-label="Comenzar lección en video: Bienvenida">Comenzar</button>
+          </article>
+
           <!-- Tarjeta: Procesador -->
           <article class="comp-card" data-reveal>
             <img class="comp-img" src="img/processor.webp" alt="Procesador CPU montado en su zócalo" width="1200" height="797" loading="lazy">
             <button class="comp-head" aria-expanded="false">
               <span class="comp-icon"><svg class="ic"><use href="#icon-cpu"></use></svg></span>
               <span class="comp-title">
-                <strong>Procesador (CPU)</strong>
+                <strong>Procesador</strong>
                 <em>El cerebro que ejecuta instrucciones</em>
               </span>
               <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
@@ -149,51 +171,29 @@
                 <li><b>Cuidado:</b> requiere disipador y pasta térmica bien aplicadas.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" data-leccion="procesador" aria-haspopup="dialog" aria-label="Comenzar lección en video: Procesador (CPU)">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="procesador" aria-haspopup="dialog" aria-label="Comenzar lección en video: Procesador">Comenzar</button>
           </article>
 
-          <!-- Tarjeta: Placa madre -->
+          <!-- Tarjeta: Placa y Memoria RAM -->
           <article class="comp-card" data-reveal>
             <img class="comp-img" src="img/motherboard.webp" alt="Placa madre con zócalo de CPU y ranuras de memoria" width="1200" height="800" loading="lazy">
             <button class="comp-head" aria-expanded="false">
               <span class="comp-icon"><svg class="ic"><use href="#icon-board"></use></svg></span>
               <span class="comp-title">
-                <strong>Placa madre</strong>
-                <em>Interconecta todos los componentes</em>
+                <strong>Placa y Memoria RAM</strong>
+                <em>Conexión y memoria temporal</em>
               </span>
               <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
             </button>
             <div class="comp-body">
-              <div class="comp-inner"><p>Circuito impreso principal donde se conectan CPU, memoria, almacenamiento y tarjetas de expansión.</p>
+              <div class="comp-inner"><p>La placa madre interconecta los componentes; la RAM guarda los datos y programas en uso.</p>
               <ul>
-                <li><b>Claves:</b> chipset, socket, ranuras DIMM/PCIe y factores de forma.</li>
-                <li><b>Firmware:</b> BIOS/UEFI gestiona el arranque (POST).</li>
-                <li><b>Cuidado:</b> evita golpes y revisa los standoffs del gabinete.</li>
+                <li><b>Placa:</b> socket, chipset, ranuras DIMM/PCIe y BIOS/UEFI.</li>
+                <li><b>RAM:</b> capacidad, velocidad y tipo DDR4/DDR5.</li>
+                <li><b>Cuidado:</b> compatibilidad, descarga estática y buen encaje.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
-          </article>
-
-          <!-- Tarjeta: Memoria RAM -->
-          <article class="comp-card" data-reveal>
-            <img class="comp-img" src="img/ram.webp" alt="Módulo de memoria RAM con sus chips" width="1200" height="675" loading="lazy">
-            <button class="comp-head" aria-expanded="false">
-              <span class="comp-icon"><svg class="ic"><use href="#icon-ram"></use></svg></span>
-              <span class="comp-title">
-                <strong>Memoria RAM</strong>
-                <em>Almacenamiento temporal de alta velocidad</em>
-              </span>
-              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
-            </button>
-            <div class="comp-body">
-              <div class="comp-inner"><p>Guarda los datos y programas en uso mientras la PC está encendida; al apagarse se borra su contenido.</p>
-              <ul>
-                <li><b>Claves:</b> capacidad (GB), velocidad (MHz) y tipo DDR4/DDR5.</li>
-                <li><b>Instalación:</b> alinea la muesca y cierra los seguros.</li>
-                <li><b>Síntoma de falla:</b> pantallazos azules y reinicios.</li>
-              </ul></div>
-            </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="placa-memoria-ram" aria-haspopup="dialog" aria-label="Comenzar lección en video: Placa y Memoria RAM">Comenzar</button>
           </article>
 
           <!-- Tarjeta: Almacenamiento -->
@@ -215,60 +215,38 @@
                 <li><b>HDD:</b> mayor capacidad, menor velocidad y con partes móviles.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="almacenamiento" aria-haspopup="dialog" aria-label="Comenzar lección en video: Almacenamiento">Comenzar</button>
           </article>
 
-          <!-- Tarjeta: Fuente de poder -->
-          <article class="comp-card" data-reveal>
-            <img class="comp-img" src="img/power_source.webp" alt="Fuente de poder con su ventilador" width="1200" height="900" loading="lazy">
-            <button class="comp-head" aria-expanded="false">
-              <span class="comp-icon"><svg class="ic"><use href="#icon-psu"></use></svg></span>
-              <span class="comp-title">
-                <strong>Fuente de poder</strong>
-                <em>Convierte la corriente de la red</em>
-              </span>
-              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
-            </button>
-            <div class="comp-body">
-              <div class="comp-inner"><p>Transforma la corriente alterna (110/220 V) en las tensiones continuas que usa la PC (+12 V, +5 V, +3.3 V).</p>
-              <ul>
-                <li><b>Claves:</b> vatios (W), certificación 80 Plus y protecciones.</li>
-                <li><b>Señal de alarma:</b> olor a quemado, zumbidos o arranques fallidos.</li>
-                <li><b>Prueba:</b> verificar con tester ATX.</li>
-              </ul></div>
-            </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
-          </article>
-
-          <!-- Tarjeta: Tarjeta gráfica -->
+          <!-- Tarjeta: Fuente de Poder y GPU -->
           <article class="comp-card" data-reveal>
             <img class="comp-img" src="img/GPU.webp" alt="Tarjeta gráfica con dos ventiladores" width="1200" height="800" loading="lazy">
             <button class="comp-head" aria-expanded="false">
-              <span class="comp-icon"><svg class="ic"><use href="#icon-gpu"></use></svg></span>
+              <span class="comp-icon"><svg class="ic"><use href="#icon-psu"></use></svg></span>
               <span class="comp-title">
-                <strong>Tarjeta gráfica</strong>
-                <em>Renderiza imagen y video (GPU)</em>
+                <strong>Fuente de Poder y GPU</strong>
+                <em>Energía y gráficos</em>
               </span>
               <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
             </button>
             <div class="comp-body">
-              <div class="comp-inner"><p>Procesa los cálculos de imagen en paralelo: escritorio, videojuegos, edición y renderizado 3D.</p>
+              <div class="comp-inner"><p>La fuente convierte la corriente y alimenta la PC; la GPU procesa imagen y video en paralelo.</p>
               <ul>
-                <li><b>Claves:</b> GPU dedicada, memoria VRAM y puerto de salida.</li>
-                <li><b>Integrada:</b> la iGPU de la CPU sirve para uso básico.</li>
-                <li><b>Cuidado:</b> necesita alimentación PCIe y buen flujo de aire.</li>
+                <li><b>Fuente:</b> vatios, certificación 80 Plus y protecciones.</li>
+                <li><b>GPU:</b> VRAM, salidas de video y alimentación PCIe.</li>
+                <li><b>Cuidado:</b> no abrir la fuente y mantener buen flujo de aire.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="fuente-gpu" aria-haspopup="dialog" aria-label="Comenzar lección en video: Fuente de Poder y GPU">Comenzar</button>
           </article>
 
-          <!-- Tarjeta: Enfriamiento -->
+          <!-- Tarjeta: Refrigeración -->
           <article class="comp-card" data-reveal>
             <img class="comp-img" src="img/fan_cooler.webp" alt="Disipador con ventilador para procesador" width="1200" height="900" loading="lazy">
             <button class="comp-head" aria-expanded="false">
               <span class="comp-icon"><svg class="ic"><use href="#icon-fan"></use></svg></span>
               <span class="comp-title">
-                <strong>Sistema de enfriamiento</strong>
+                <strong>Refrigeración</strong>
                 <em>Disipadores, ventiladores y pasta térmica</em>
               </span>
               <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
@@ -281,30 +259,9 @@
                 <li><b>Monitoreo:</b> vigila temperaturas con software de sensor.</li>
               </ul></div>
             </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
+            <button class="comp-cta" type="button" data-leccion="refrigeracion" aria-haspopup="dialog" aria-label="Comenzar lección en video: Refrigeración">Comenzar</button>
           </article>
 
-          <!-- Tarjeta: Periféricos y gabinete -->
-          <article class="comp-card" data-reveal>
-            <img class="comp-img" src="img/tower_pc.webp" alt="Gabinete de PC con sus componentes internos" width="786" height="1200" loading="lazy">
-            <button class="comp-head" aria-expanded="false">
-              <span class="comp-icon"><svg class="ic"><use href="#icon-keyboard"></use></svg></span>
-              <span class="comp-title">
-                <strong>Gabinete y periféricos</strong>
-                <em>Estructura, entrada y salida</em>
-              </span>
-              <svg class="ic comp-chevron"><use href="#icon-chevron"></use></svg>
-            </button>
-            <div class="comp-body">
-              <div class="comp-inner"><p>El gabinete protege y ordena los componentes; los periféricos permiten interactuar con el sistema.</p>
-              <ul>
-                <li><b>Entrada:</b> teclado, mouse, micrófono.</li>
-                <li><b>Salida:</b> monitor, parlantes, impresora.</li>
-                <li><b>Consejo:</b> un cableado limpio mejora el flujo de aire.</li>
-              </ul></div>
-            </div>
-            <button class="comp-cta" type="button" aria-expanded="false">Comenzar</button>
-          </article>
         </div>
       </div>
     </section>
@@ -358,7 +315,7 @@
         <div class="quiz-intro">
           <span class="eyebrow">Pon a prueba lo aprendido</span>
           <h3 id="quizTitle">Quiz del procesador</h3>
-          <p>Responde estas tres preguntas. Puedes volver a ver el video si lo necesitas.</p>
+          <p id="quizIntroText">Responde estas tres preguntas. Puedes volver a ver el video si lo necesitas.</p>
         </div>
 
         <form class="quiz-form" id="quizForm" novalidate>

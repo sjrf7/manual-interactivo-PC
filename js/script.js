@@ -169,8 +169,52 @@ function iniciarComponentes() {
 
 /** Contenido de las lecciones disponibles. */
 const LECCIONES = {
+  bienvenida: {
+    titulo: "Bienvenida · Guía visual de la PC",
+    eyebrow: "Bienvenida",
+    video: "videos/00-Bienvenida.mp4",
+    poster: "img/tower_pc.webp",
+    quiz: [
+      {
+        pregunta: "¿Qué encontrarás en este manual interactivo?",
+        opciones: [
+          "La función y los cuidados de los componentes de una PC.",
+          "Solo programas de oficina.",
+          "Juegos para instalar.",
+          "Planos para fabricar una PC.",
+        ],
+        correcta: 0,
+        explicacion:
+          "El manual explica qué hace cada componente y cómo cuidarlo mediante tarjetas, videos y quizzes.",
+      },
+      {
+        pregunta: "¿Cuál es el objetivo principal de la guía?",
+        opciones: [
+          "Vender componentes.",
+          "Reparar televisores.",
+          "Aprender qué hace cada pieza y cómo cuidarla.",
+          "Instalar sistemas operativos.",
+        ],
+        correcta: 2,
+        explicacion:
+          "La guía busca que comprendas la función de cada pieza y los cuidados básicos para prolongar la vida de la PC.",
+      },
+      {
+        pregunta: "¿Qué puedes hacer al finalizar cada lección?",
+        opciones: [
+          "Descargar música.",
+          "Resolver un quiz para comprobar lo aprendido.",
+          "Cambiar el idioma del sistema.",
+          "Formatear el disco.",
+        ],
+        correcta: 1,
+        explicacion:
+          "Cada lección termina con un quiz breve que refuerza los conceptos principales del video.",
+      },
+    ],
+  },
   procesador: {
-    titulo: "Procesador (CPU)",
+    titulo: "Procesador",
     video: "videos/01-Procesador.mp4",
     poster: "img/processor.webp",
     quiz: [
@@ -212,13 +256,185 @@ const LECCIONES = {
       },
     ],
   },
+  "placa-memoria-ram": {
+    titulo: "Placa y Memoria RAM",
+    video: "videos/02-Placa Madre y Memoria RAM.mp4",
+    poster: "img/motherboard.webp",
+    quiz: [
+      {
+        pregunta: "¿Qué función cumple la placa madre?",
+        opciones: [
+          "Conectar e interconectar los componentes de la PC.",
+          "Almacenar los archivos del usuario.",
+          "Generar la imagen de la pantalla.",
+          "Enfriar el procesador.",
+        ],
+        correcta: 0,
+        explicacion:
+          "La placa madre conecta CPU, RAM, almacenamiento y tarjetas de expansión, y permite que se comuniquen.",
+      },
+      {
+        pregunta: "¿Qué ocurre con los datos de la RAM al apagar la PC?",
+        opciones: [
+          "Se borran.",
+          "Se guardan para siempre.",
+          "Se envían al disco duro automáticamente.",
+          "Se comprimen.",
+        ],
+        correcta: 0,
+        explicacion:
+          "La RAM es memoria temporal: mantiene los datos mientras hay energía y se borra al apagar el equipo.",
+      },
+      {
+        pregunta: "¿Qué debes verificar antes de cambiar de placa o ampliar la RAM?",
+        opciones: [
+          "El color del gabinete.",
+          "La marca del monitor.",
+          "Socket, tipo de memoria y compatibilidad.",
+          "El tamaño del teclado.",
+        ],
+        correcta: 2,
+        explicacion:
+          "La placa y la RAM deben ser compatibles con el socket, el tipo de memoria y el factor de forma.",
+      },
+    ],
+  },
+  almacenamiento: {
+    titulo: "Almacenamiento",
+    video: "videos/03-Almacenamiento.mp4",
+    poster: "img/hard_drive.webp",
+    quiz: [
+      {
+        pregunta: "¿Cuál es la diferencia principal entre un SSD y un HDD?",
+        opciones: [
+          "El SSD no tiene partes móviles y es más rápido.",
+          "El HDD no necesita alimentación.",
+          "El SSD solo sirve para música.",
+          "El HDD siempre es más rápido.",
+        ],
+        correcta: 0,
+        explicacion:
+          "El SSD usa memoria flash y no tiene partes móviles; el HDD usa platos y cabezal, por eso es más lento.",
+      },
+      {
+        pregunta: "¿Para qué sirve la tecnología SMART?",
+        opciones: [
+          "Para convertir el disco en RAM.",
+          "Para monitorear la salud del disco.",
+          "Para aumentar la velocidad de Internet.",
+          "Para enfriar el disco.",
+        ],
+        correcta: 1,
+        explicacion:
+          "SMART informa sobre errores y salud del disco para anticipar fallos y proteger los datos.",
+      },
+      {
+        pregunta: "¿Qué hacer si el disco tiene sectores dañados?",
+        opciones: [
+          "Seguir usándolo sin copia.",
+          "Cambiar solo el cable.",
+          "Respaldar los datos y reemplazarlo.",
+          "Formatearlo varias veces.",
+        ],
+        correcta: 2,
+        explicacion:
+          "Ante sectores dañados, lo prioritario es respaldar la información y reemplazar el disco para evitar pérdidas.",
+      },
+    ],
+  },
+  "fuente-gpu": {
+    titulo: "Fuente de Poder y GPU",
+    video: "videos/04-Fuente de Poder y GPU.mp4",
+    poster: "img/GPU.webp",
+    quiz: [
+      {
+        pregunta: "¿Qué hace la fuente de poder?",
+        opciones: [
+          "Convierte la corriente alterna en tensiones continuas.",
+          "Almacena los archivos del sistema.",
+          "Procesa las imágenes de los juegos.",
+          "Enfría el procesador.",
+        ],
+        correcta: 0,
+        explicacion:
+          "La fuente transforma la corriente de la red en +12 V, +5 V y +3.3 V, que alimentan los componentes.",
+      },
+      {
+        pregunta: "¿Cuál es la función principal de la GPU?",
+        opciones: [
+          "Procesar imagen y video en paralelo.",
+          "Guardar el sistema operativo.",
+          "Convertir la corriente eléctrica.",
+          "Limpiar la memoria RAM.",
+        ],
+        correcta: 0,
+        explicacion:
+          "La GPU procesa cálculos gráficos en paralelo para escritorio, videojuegos, edición y renderizado 3D.",
+      },
+      {
+        pregunta: "¿Qué necesita la GPU además de estar bien insertada?",
+        opciones: [
+          "Solo el monitor.",
+          "Solo un cable HDMI.",
+          "Alimentación PCIe y drivers actualizados.",
+          "Una segunda fuente.",
+        ],
+        correcta: 2,
+        explicacion:
+          "La GPU necesita los cables de alimentación PCIe y los controladores instalados para funcionar correctamente.",
+      },
+    ],
+  },
+  refrigeracion: {
+    titulo: "Refrigeración",
+    video: "videos/05-Refrigeracion.mp4",
+    poster: "img/fan_cooler.webp",
+    quiz: [
+      {
+        pregunta: "¿Qué evita un buen sistema de enfriamiento?",
+        opciones: [
+          "El sobrecalentamiento y el throttling.",
+          "La instalación de la RAM.",
+          "El uso del teclado.",
+          "La conexión a Internet.",
+        ],
+        correcta: 0,
+        explicacion:
+          "Un buen enfriamiento mantiene temperaturas seguras y evita que la CPU o la GPU reduzcan su rendimiento.",
+      },
+      {
+        pregunta: "¿Cada cuánto se recomienda limpiar el polvo?",
+        opciones: [
+          "Cada semana.",
+          "Cada 3 a 6 meses.",
+          "Una vez al año.",
+          "Nunca.",
+        ],
+        correcta: 1,
+        explicacion:
+          "Limpiar polvo cada tres a seis meses mantiene el flujo de aire y evita que los ventiladores trabajen de más.",
+      },
+      {
+        pregunta: "¿Qué hacer si un ventilador hace ruido o se detiene?",
+        opciones: [
+          "Subirle el voltaje.",
+          "Dejarlo girar más rápido.",
+          "Reemplazarlo.",
+          "Desconectarlo.",
+        ],
+        correcta: 2,
+        explicacion:
+          "Un ventilador con rodamiento desgastado o detenido debe reemplazarse para evitar sobrecalentamiento.",
+      },
+    ],
+  },
 };
 
 const MENSAJES_QUIZ = [
   "Conviene repasar el video antes de continuar.",
   "Vas por buen camino; repasa los detalles clave.",
   "Muy bien, dominas casi todo el tema.",
-  "¡Excelente! Comprendiste el papel del procesador.",
+  "¡Excelente! Comprendiste el tema.",
 ];
 
 /** Controla la lección modal: video, quiz, resultado y cierre. */
@@ -297,7 +513,11 @@ function iniciarLecciones() {
     if (!datos || dialogo.open) return;
 
     leccionActual = datos;
+    $("#lessonEyebrow").textContent = datos.eyebrow || "Lección en video";
     $("#lessonTitle").textContent = datos.titulo;
+    $("#quizTitle").textContent = `Quiz: ${datos.titulo}`;
+    $("#quizIntroText").textContent = `Responde estas ${datos.quiz.length} preguntas. Puedes volver a ver el video si lo necesitas.`;
+    video.setAttribute("aria-label", `Video de la lección: ${datos.titulo}`);
     video.poster = datos.poster;
     video.src = datos.video;
     video.load();
